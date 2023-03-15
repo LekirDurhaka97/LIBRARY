@@ -11,6 +11,8 @@ public interface IBookService {
 
     BookEntity findBookById(Long id);
 
+    BookEntity findByAuthorEntity_Id(Long author_id);
+
     BookEntity save(BookEntity bookEntity);
 
     boolean update(BookEntity bookEntity);

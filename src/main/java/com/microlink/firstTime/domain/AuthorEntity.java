@@ -1,6 +1,7 @@
 package com.microlink.firstTime.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "author")
@@ -17,8 +18,9 @@ public class AuthorEntity {
     @Column(name = "last_name", length = 255)
     private String lastName;
 
-    /*@OneToMany(mappedBy = "id")
-    private List<BookEntity> bookEntity;*/
+    @OneToMany(mappedBy = "authorEntity")
+    private List<BookEntity> bookEntities;
+
 
     public AuthorEntity(Long id, String firstName, String lastName) {
         this.id = id;

@@ -4,6 +4,7 @@ import com.microlink.firstTime.domain.AuthorEntity;
 import com.microlink.firstTime.domain.BookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.awt.print.Book;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,5 +13,7 @@ public interface BookRepo extends JpaRepository<BookEntity, Long> {
     List<BookEntity> findAll();
 
     Optional<BookEntity> findById(Long id);
+
+    BookEntity findByAuthorId(Long author_id);
 
 }

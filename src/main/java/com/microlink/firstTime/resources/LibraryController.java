@@ -78,6 +78,10 @@ public class LibraryController {
     public BookEntity getBookById(@PathVariable Long id) {
         return iBookService.findBookById(id);
     }
+    @GetMapping("/viewBookByAuthor/{author_id}")
+    public BookEntity getBookByAuthorId(@PathVariable Long author_id) {
+        return iBookService.findByAuthorEntity_Id(author_id);
+    }
     @PostMapping("/newBook")
     public BookEntity save(@RequestBody BookEntity bookEntity) {
         return iBookService.save(bookEntity);

@@ -23,6 +23,10 @@ public class BookService implements IBookService{
         return bookRepo.findById(id).orElse(null);
     }
 
+    public BookEntity findByAuthorEntity_Id(Long author_id) {
+        return bookRepo.findByAuthorId(author_id);
+    }
+
     public BookEntity save(BookEntity bookEntity) {
         bookRepo.save(bookEntity);
         return bookEntity;

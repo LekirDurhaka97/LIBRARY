@@ -10,17 +10,22 @@ public class BookEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    /*@Column(name = "author_id", nullable = false)
+    private Long authorId;*/
+
     //@NotNull
     @Column(name = "title", length = 255, nullable = false)
     private String title;
 
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "id")
-    private BookEntity book;*/
+    private AuthorEntity authorEntity;
 
-    public BookEntity(Long id, String title) {
+    public BookEntity(Long id, String title, AuthorEntity authorEntity) {
         this.id = id;
         this.title = title;
+        this.authorEntity = authorEntity;
     }
 
     public BookEntity() {
@@ -40,5 +45,13 @@ public class BookEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public AuthorEntity getAuthorEntity() {
+        return authorEntity;
+    }
+
+    public void setAuthorEntity(AuthorEntity authorEntity) {
+        this.authorEntity = authorEntity;
     }
 }
