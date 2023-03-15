@@ -24,7 +24,7 @@ public class BookService implements IBookService{
     }
 
     public BookEntity findByAuthorEntity_Id(Long author_id) {
-        return bookRepo.findByAuthorId(author_id);
+        return bookRepo.findByAuthorEntity_Id(author_id);
     }
 
     public BookEntity save(BookEntity bookEntity) {

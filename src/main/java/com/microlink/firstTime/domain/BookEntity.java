@@ -19,7 +19,7 @@ public class BookEntity {
     private String title;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "author_id")
     private AuthorEntity authorEntity;
 
     public BookEntity(Long id, String title, AuthorEntity authorEntity) {

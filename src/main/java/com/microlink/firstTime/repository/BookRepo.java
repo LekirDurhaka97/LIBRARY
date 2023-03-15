@@ -14,6 +14,6 @@ public interface BookRepo extends JpaRepository<BookEntity, Long> {
 
     Optional<BookEntity> findById(Long id);
 
-    BookEntity findByAuthorId(Long author_id);
+    BookEntity findByAuthorEntity_Id(Long author_id);
 
 }
