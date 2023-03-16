@@ -10,15 +10,11 @@ public class BookEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-    /*@Column(name = "author_id", nullable = false)
-    private Long authorId;*/
-
     //@NotNull
     @Column(name = "title", length = 255, nullable = false)
     private String title;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
     private AuthorEntity authorEntity;
 
