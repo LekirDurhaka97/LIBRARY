@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IAuthorService {
 
-    List<AuthorEntity> findAllAuthor();
+    List<AuthorEntity> findAll();
 
     AuthorEntity findAuthorById(Long id);
 

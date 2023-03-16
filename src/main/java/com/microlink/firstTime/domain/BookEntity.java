@@ -18,14 +18,6 @@ public class BookEntity {
     @JoinColumn(name = "author_id")
     private AuthorEntity authorEntity;
 
-    public BookEntity(Long id, String title, AuthorEntity authorEntity) {
-        this.id = id;
-        this.title = title;
-        this.authorEntity = authorEntity;
-    }
-
-    public BookEntity() {
-    }
 
     public Long getId() {
         return id;

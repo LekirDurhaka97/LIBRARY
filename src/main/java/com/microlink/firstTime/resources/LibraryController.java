@@ -31,13 +31,8 @@ public class LibraryController {
     ////////////////////////////////
     @GetMapping("/author")
     public List<AuthorEntity> findAllAuthor() {
-        List<AuthorEntity> authors = iAuthorService.findAllAuthor();
-        return authors.stream()
-                .peek(author -> {
-                    author.setFirstName(author.getFirstName().toUpperCase());
-                    author.setLastName(author.getLastName().toUpperCase());
-                })
-                .collect(Collectors.toList());
+        List<AuthorEntity> authors = iAuthorService.findAll();
+        return authors;
     }
     @GetMapping("/viewAuthor/{id}")
     public AuthorEntity getAuthorById(@PathVariable Long id) {
@@ -78,10 +73,10 @@ public class LibraryController {
     public BookEntity getBookById(@PathVariable Long id) {
         return iBookService.findBookById(id);
     }
-    @GetMapping("/viewBookByAuthor/{author_id}")
+    /*@GetMapping("/viewBookByAuthor/{author_id}")
     public BookEntity getBookByAuthorId(@PathVariable Long author_id) {
         return iBookService.findByAuthorEntity_Id(author_id);
-    }
+    }*/
     @PostMapping("/newBook")
     public BookEntity save(@RequestBody BookEntity bookEntity) {
         return iBookService.save(bookEntity);

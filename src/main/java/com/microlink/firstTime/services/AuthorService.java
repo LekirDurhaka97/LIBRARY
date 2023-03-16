@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthorService implements IAuthorService{
@@ -13,8 +14,19 @@ public class AuthorService implements IAuthorService{
     @Autowired
     private AuthorRepo authorRepo;
 
-    public List<AuthorEntity> findAllAuthor() {
+    public List<AuthorEntity> findAll() {
+        AuthorEntity author = new AuthorEntity();
         List<AuthorEntity> authorEntity = authorRepo.findAll();
+        /*return authorEntity.stream()
+                .peek(author -> {
+                    author.setFirstName(author.getFirstName().toUpperCase());
+                    author.setLastName(author.getLastName().toUpperCase());
+                })
+                .collect(Collectors.toList());*/
+        authorEntity.forEach(x -> {
+            x.setLastName(x.getLastName().toUpperCase());
+            x.setFirstName(x.getFirstName().toUpperCase());
+        });
         return authorEntity;
     }
 
